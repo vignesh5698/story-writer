@@ -12,5 +12,8 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^3.8.2"
+  },
+  "scripts": {
+    "start": "rails c"
   }
 }
