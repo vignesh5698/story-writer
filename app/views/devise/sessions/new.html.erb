@@ -1,26 +1,42 @@
-<h2>Log in</h2>
+ <div class="card col-lg-3 mx-auto">
+  <div class="card-body">
+    <h1 class="brand text-center">Story Writer</h1> <br/>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-6">
+      <hr class="login-hr">
+      <span class="login-spanor">Login with your story writer account</span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div class="broker-logo"></div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "a@a.com" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, class: "form-control", placeholder: "***" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: "btn btn-primary btn-block btn-circle log-btn" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <%= render "devise/shared/links" %>
+  
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
