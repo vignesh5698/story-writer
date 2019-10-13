@@ -1,5 +1,6 @@
-<%= link_to 'Write_story', new_post_path %> &nbsp;
-<%= link_to 'Back', '/' %>
+<%= link_to 'Write_story', new_post_path %> &nbsp; &nbsp;
+<%= link_to 'Back', '/' %>&nbsp; &nbsp;
+<%= link_to 'All_Stories', all_posts_path %>
 <hr>
 <h1>Stories</h1>
 
@@ -13,7 +14,10 @@
   </thead>
 
   <tbody>
-    <% @posts.each do |post| %>
+  <%
+    user_posts = Post.where(user_id: @current_user)
+  %>
+    <% user_posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
         <td><%= post.user.email %></td>

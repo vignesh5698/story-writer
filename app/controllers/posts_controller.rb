@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  respond_to do |format|
+    format.html
+    format.json
+   end
   # GET /posts
   # GET /posts.json
   def index
+    @current_user = current_user.id
     @posts = Post.all
   end
 
@@ -26,9 +30,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @post.email = current_user.email
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -69,6 +74,11 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post).permit(:title, :body, :user_id, :email)
+    end
+
+    protected
+    def begin_of_association_chain
+      current_user
     end
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    collection do
+      get '/all' => 'posts#show_all'
+    end
+  end
   root 'pages#home'
   
   devise_for :users
