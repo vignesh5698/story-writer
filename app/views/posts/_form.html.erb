@@ -1,3 +1,17 @@
+ <div class="card col-lg-3 mx-auto">
+  <div class="card-body">
+    <h1 class="brand text-center">Story Writer</h1> <br/>
+
+  <div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-6">
+      <hr class="login-hr">
+      <span class="login-spanor">Tell your story</span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div class="broker-logo"></div>
+    </div>
+  </div>
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -12,16 +26,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :Story_Title %>
+    <%= form.text_field :title, class: "form-control", placeholder: "My awesome story" %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :Story %>
+    <%= form.text_area :body , class: "form-control", placeholder: ".." %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+</div>
