@@ -1,6 +1,7 @@
-<%= link_to 'Write_story', new_post_path %> &nbsp; &nbsp;
-<%= link_to 'Back', '/' %>&nbsp; &nbsp;
-<%= link_to 'All_Stories', all_posts_path %>
+<%= link_to 'Write_story', new_post_path , class: "btn btn-outline-primary" %> &nbsp; &nbsp;
+<%= link_to 'All_Stories', all_posts_path , class: "btn btn-outline-primary" %>&nbsp; &nbsp;
+<%= link_to 'Back', '/' , class: "btn btn-outline-primary" %>
+
 <hr>
 <h2>My Stories</h2>
 
@@ -21,12 +22,10 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.user.email %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', post , class: "btn btn-outline-success" %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) , class: "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-outline-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>

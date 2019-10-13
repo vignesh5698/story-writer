@@ -35,9 +35,12 @@
     <%= form.text_area :body , class: "form-control", placeholder: ".." %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions submit-button">
+    <button class="btn btn-sm btn-outline-primary" type='submit'>
+      Create Post
+    </button>
   </div>
 <% end %>
 </div>
+<%= link_to 'Back', posts_path , class: "btn btn-outline-primary btn-sm" %>
 </div>

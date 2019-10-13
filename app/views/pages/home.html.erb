@@ -4,26 +4,17 @@
   <h1>Story Writer</h1>
   <% if current_user %>
     <div>
-      <h3><span class="btn btn-outline-primary">
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>          
-      </span></h3>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-primary mb-2" %>
     </div>
     <div>
-      <h3><span class="btn btn-outline-primary">
-        <%= link_to 'Stories', posts_path %>    
-      </span></h3>
+      <%= link_to 'Stories', posts_path, class: "btn btn-outline-primary" %>
     </div>
   <% else %>
     <div>
-    <h3><span class="btn btn-outline-primary">
-      <%= link_to 'Sign up', new_user_registration_path %>    
-    </span></h3>
-
+      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-primary mb-2" %>
     </div>
     <div>
-    <h3><span class="btn btn-outline-primary">
-      <%= link_to 'Sign in', new_user_session_path %>
-    </span></h3>
+      <%= link_to 'Sign in', new_user_session_path, class: "btn btn-outline-primary" %>
     </div>
   <% end %>  
 </div>
