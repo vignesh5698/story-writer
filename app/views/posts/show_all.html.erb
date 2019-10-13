@@ -1,2 +1,30 @@
-<%= javascript_pack_tag 'application' %>
-<%= react_component('ViewAllStories') %>
+<%= link_to 'Write_story', new_post_path %> &nbsp; &nbsp;
+<%= link_to 'Back', '/' %>&nbsp; &nbsp;
+<%= link_to 'All_Stories', all_posts_path %>
+<hr>
+<h1>All Stories</h1>
+
+<table  class="table">
+  <thead>
+    <tr>
+      <th scope="col">Story title</th>
+      <th scope="col">Written by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%
+    posts = Post.all
+  %>
+    <% posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.user.email %></td>
+        <td><%= link_to 'Show', post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
